@@ -1,70 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Form</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
 <h1>Login Form</h1>
+<form id="form-group">
+	<label for="username">Username:</label>
+	<input type = "text" placeholder="UserName" id="username">
+	<label for="password">Password:</label>
 
-<form id="loginForm">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" placeholder="Username" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="Password" required>
-  </div>
-  <div>
-    <input type="checkbox" id="checkbox" name="remember">
-    <label for="checkbox">Remember me</label>
-  </div>
-  <input type="submit" id="submit" value="Submit">
+	<input type="password" placeholder="Password"  id ="password">
+	
+	<label for="checkbox">Remember me:</label>
+	<input type = "checkbox" id="checkbox">
+	<input type="submit" id ="submit" value="Submit">
 </form>
-
-<button id="existing" style="display: none;">Login as existing user</button>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if there are saved details
-  const savedUsername = localStorage.getItem('username');
-  const savedPassword = localStorage.getItem('password');
-
-  if (savedUsername && savedPassword) {
-    document.getElementById('existing').style.display = 'block';
-  }
-
-  // Add event listener to the form submit
-  document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const remember = document.getElementById('checkbox').checked;
-
-    // Save details in local storage if "remember me" checkbox is checked
-    if (remember) {
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
-    } else {
-      // Remove saved details if checkbox is unchecked
-      localStorage.removeItem('username');
-      localStorage.removeItem('password');
-    }
-
-    alert('Logged in as ' + username);
-  });
-
-  // Add event listener to the "Login as existing user" button
-  document.getElementById('existing').addEventListener('click', function() {
-    const savedUsername = localStorage.getItem('username');
-    alert('Logged in as ' + savedUsername);
-  });
-});
+	<button id="existing" style="display: none;">Login as existing user</button
+	<!-- the entire body must be written by student -->
+    <script type="text/javascript" src="./script.js">
 </script>
 
 </body>
+
 </html>
